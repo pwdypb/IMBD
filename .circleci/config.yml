@@ -6,3 +6,5 @@ jobs:
      steps:
        - checkout
        - run: echo "hello world"
+       - run: mvn dependency:go-offline
+       - run: mvn package
