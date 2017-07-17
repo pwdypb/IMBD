@@ -8,12 +8,12 @@ jobs:
        - run: echo "hello world"
        - restore_cache:
             keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - circleci-demo-java-{{ checksum "pom.xml" }}
        - run: mvn dependency:go-offline
        - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+          key: circleci-demo-java-{{ checksum "pom.xml" }}
        - run: mvn package
+       - store_artifacts:
+          path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
