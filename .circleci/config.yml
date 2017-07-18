@@ -24,10 +24,8 @@ workflows:
      jobs:
        - build
        - test1
-       - hold:
-         type: approval
          requires:
-           - test1
+           - build
        - deploy:
          requires:
-           - hold
+           - test1
