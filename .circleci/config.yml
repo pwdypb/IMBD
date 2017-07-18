@@ -6,4 +6,9 @@ jobs:
      steps:
        - checkout
        - run: mvn dependency:go-offline
-       - run: mvn package
+       
+    deployment:
+      production:
+        branch: master
+        heroku:
+          appname: lit-chamber-7112
