@@ -1,14 +1,29 @@
 version: 2
 jobs:
    build:
-    docker:
+     docker:
        - image: circleci/openjdk:8-jdk-browsers
-    steps:
+     steps:
        - checkout
        - run: mvn dependency:go-offline
        - run: mvn package
-    deployment:
-      production:
-        branch: master
-        heroku:
-          appname: lit-chamber-7112
+   test:
+     docker:
+       - image: circleci/openjdk:8-jdk-browsers
+     steps:
+       - checkout
+       - run: mvn test
+   deployment:
+     production:
+       branch: master
+       heroku:
+         appname: lit-chamber-7112
+workflows:
+   build-test-and-deploy:
+     jobs:
+       - build
+       - test
+       - deploy:
+         requires:
+           - build
+           - test
