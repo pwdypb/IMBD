@@ -3,10 +3,10 @@ jobs:
    build:
     docker:
        - image: circleci/openjdk:8-jdk-browsers
-     steps:
+    steps:
        - checkout
        - run: mvn dependency:go-offline
-       
+       - run: mvn package
     deployment:
       production:
         branch: master
