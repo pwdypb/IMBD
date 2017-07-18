@@ -6,9 +6,9 @@ jobs:
      steps:
        - checkout
        - run: echo "hello world"
-	   - run: mvn package
+       - run: mvn package
   deployment:
-	production:
-		branch: master
-		heroku:
-		  appname: lit-chamber-7112
+    production:
+      branch: master
+      heroku:
+        appname: lit-chamber-7112
