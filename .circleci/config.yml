@@ -1,4 +1,4 @@
-version: 2
+version: 1
 jobs:
    build:
      docker:
@@ -6,3 +6,9 @@ jobs:
      steps:
        - checkout
        - run: echo "hello world"
+	   - run: mvn package
+  deployment:
+	production:
+		branch: master
+		heroku:
+		  appname: lit-chamber-7112
