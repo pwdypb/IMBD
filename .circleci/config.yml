@@ -13,17 +13,21 @@ jobs:
      steps:
        - checkout
        - run: mvn test
-#   deployment:
+   deploy:
+     steps:
+       - checkout
+       - run: echo "Hello Deploy"
 #     production:
 #       branch: master
 #       heroku:
 #         appname: lit-chamber-7112
 workflows:
+   version: 2
    build-test-and-deploy:
      jobs:
        - build
        - test
-#       - deploy:
-#         requires:
-#           - build
-#           - test
+       - deploy:
+         requires:
+           - build
+           - test
