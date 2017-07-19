@@ -21,13 +21,13 @@ jobs:
 #       branch: master
 #       heroku:
 #         appname: lit-chamber-7112
-workflows:
-   version: 2
-   build-test-and-deploy:
-     jobs:
-       - build
-       - test
-       - deploy:
-         requires:
-           - build
-           - test
+#workflows:
+#   version: 2
+#   build-test-and-deploy:
+#     jobs:
+#       - build
+#       - test
+#       - deploy:
+#         requires:
+#           - build
+#           - test
