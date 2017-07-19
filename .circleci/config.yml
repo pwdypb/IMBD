@@ -22,12 +22,14 @@ jobs:
        - run: echo "Hello Deploy"
        
 workflows:
-  build-and-deploy:
+  build-test-and-deploy:
     jobs:
       - build
+      - test
       - deploy:
         requires:
           - build
+          - test
         filters:
           branches:
             only: master
