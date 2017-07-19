@@ -13,11 +13,11 @@ jobs:
      steps:
        - checkout
        - run: mvn test
-   deployment:
-     production:
-       branch: master
-       heroku:
-         appname: lit-chamber-7112
+#   deployment:
+#     production:
+#       branch: master
+#       heroku:
+#         appname: lit-chamber-7112
 #workflows:
 #   build-test-and-deploy:
 #     jobs:
