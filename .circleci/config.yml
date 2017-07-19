@@ -20,8 +20,6 @@ jobs:
      steps:
        - checkout
        - run: echo "pp"
-       - run: mvn package
-       - run: mvn test
        
 workflows:
   version: 2
