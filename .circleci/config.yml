@@ -15,11 +15,11 @@ jobs:
        - checkout
        - run: mvn test
    deploy:
-     machine:
-         enabled: true
+     docker:
+       - image: circleci/openjdk:8-jdk-browsers
      steps:
        - checkout
-       - run: echo "Hello Deploy"
+       - run: mvn test
        
 workflows:
   version: 2
@@ -27,10 +27,10 @@ workflows:
     jobs:
       - build
       - test
-#      - deploy:
-#          requires:
-#            - build
-#            - test
-#          filters:
-#            branches:
-#              only: master
+      - deploy:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
