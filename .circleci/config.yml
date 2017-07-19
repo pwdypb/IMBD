@@ -1,4 +1,5 @@
-version: 2
+version: 2.0
+
 jobs:
    build:
      docker:
@@ -19,10 +20,7 @@ jobs:
      steps:
        - checkout
        - run: echo "Hello Deploy"
-#     production:
-#       branch: master
-#       heroku:
-#         appname: lit-chamber-7112
+       
 workflows:
   version: 2
   build-test-and-deploy:
