@@ -24,12 +24,15 @@ jobs:
 #       heroku:
 #         appname: lit-chamber-7112
 workflows:
-   version: 2
-   build-test-and-deploy:
-     jobs:
-       - build
-       - test
-       - deploy:
-         requires:
-           - build
-           - test
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - build
+      - test
+      - deploy:
+        requires:
+          - build
+          - test
+        filters:
+          branches:
+            only: master
