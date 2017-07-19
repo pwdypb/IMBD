@@ -22,6 +22,7 @@ jobs:
        - run: echo "Hello Deploy"
        
 workflows:
+  version: 2
   build-test-and-deploy:
     jobs:
       - build
